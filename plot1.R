@@ -1,0 +1,5 @@
+tbl <- read.table("household_power_consumption.txt",header=TRUE,sep=';')
+tb <- na.omit(tbl[as.Date(tbl$Date, "%m/%d/%Y")== as.Date("02/02/2007","%m/%d/%Y") | as.Date(tbl$Date, "%m/%d/%Y")== as.Date("02/01/2007","%m/%d/%Y"),])
+png("plot1.png", width = 480, height = 480)
+hist(as.numeric(tb$Global_active_power), col = "red", xlab="Global Active Power (kilowatts)", ylab = 'Frequency', main = "Global Active Power")
+dev.off()
